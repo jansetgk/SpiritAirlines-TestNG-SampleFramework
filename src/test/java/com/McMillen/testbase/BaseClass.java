@@ -5,18 +5,50 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 
+import com.McMillen.utils.ConfigsReader;
 import com.McMillen.utils.Constants;
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.aventstack.extentreports.reporter.configuration.Theme;
 
 public class BaseClass {
 
 	public static WebDriver driver;
+	public static ExtentHtmlReporter html;
+	public static ExtentReports report;
+	public static ExtentTest test;
+	
+	@BeforeTest(alwaysRun = true)
+	public void generateReports() {
+
+		ConfigsReader.readProperties(Constants.CREDENTIALS_FILEPATH);
+		html=new ExtentHtmlReporter(Constants.REPORT_FILEPATH);
+		html.config().setTheme(Theme.DARK);
+		html.config().setDocumentTitle("Syntax Batch V Report");
+		html.config().setReportName("HRM Execution Report");
+		
+		report=new ExtentReports();
+		report.attachReporter(html);
+		report.setSystemInfo("QA Engineer", Constants.USER_NAME);
+		report.setSystemInfo("Environment", "Test");
+		report.setSystemInfo("OS Name", Constants.OS_NAME);
+		report.setSystemInfo("Browser", ConfigsReader.getProperty("browser"));
+	}
+	
+	@AfterTest(alwaysRun=true)
+	public void writeReport(){
+		report.flush();
+	}
 	
 	@BeforeMethod(alwaysRun=true)
 	public void setUp() {
 		
-		switch(Constants.BROWSER.toLowerCase()) {
+		switch(ConfigsReader.getProperty("browser").toLowerCase()) {
 		
 		case "chrome":
 			System.setProperty("webdriver.chrome.driver", Constants.CHROME_DRIVER_PATH);

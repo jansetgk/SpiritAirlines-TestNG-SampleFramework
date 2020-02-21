@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Regression Suite]">
+  <listeners>
+    <listener class-name="com.McMillen.testbase.Listener"/>
+  </listeners>
+  <test thread-count="5" name="Regression Test(failed)">
+    <groups>
+      <run>
+        <include name="regression"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="com.McMillen.testcases.AboutUsPageTest">
+        <methods>
+          <include name="annualReports" invocation-numbers="0 1"/>
+          <include name="writeReport"/>
+          <include name="generateReports"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.McMillen.testcases.AboutUsPageTest -->
+      <class name="com.McMillen.testcases.HomePageIcons">
+        <methods>
+          <include name="clickHome"/>
+          <include name="writeReport"/>
+          <include name="generateReports"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.McMillen.testcases.HomePageIcons -->
+    </classes>
+  </test> <!-- Regression Test(failed) -->
+</suite> <!-- Failed suite [Regression Suite] -->

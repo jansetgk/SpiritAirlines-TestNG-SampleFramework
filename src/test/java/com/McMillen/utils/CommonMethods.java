@@ -2,6 +2,8 @@ package com.McMillen.utils;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
@@ -15,6 +17,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.McMillen.testbase.BaseClass;
+import com.hrms.utils.Constants;
 
 public class CommonMethods extends BaseClass {
 	
@@ -151,16 +154,24 @@ public class CommonMethods extends BaseClass {
 	 * 
 	 * @param fileName
 	 */
-	public static void takeScreenshot(String fileName) {
-		TakesScreenshot ts= (TakesScreenshot) driver;
-		File file=ts.getScreenshotAs(OutputType.FILE);
+	public static String takeScreenshot(String fileName) {
+
+		Date date=new Date();
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy_MMdd_HHmmss");
+		String timeStamp=sdf.format(date.getTime());
+		
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File file = ts.getScreenshotAs(OutputType.FILE);
+		String scrshotFile=Constants.SCREENSHOTS_FILEPATH+fileName+timeStamp+".png";
+		
 		try {
-			FileUtils.copyFile(file, new File("screenshot/"+fileName +".png"));
-		}catch(IOException e) {
+			FileUtils.copyFile(file, new File(scrshotFile));
+		} catch (IOException e) {
 			System.out.println("Cannot take a screenshot");
 		}
+		
+		return scrshotFile;
 	}
-	
 	/**
 	 * This method will enter text
 	 * 

@@ -8,7 +8,7 @@ import com.McMillen.utils.CommonMethods;
 public class AboutUsPageTest extends CommonMethods{
 
 	@Test
-	public void annualR() {
+	public void annualReports() {
 		AboutUsPage abUs=new AboutUsPage();
 		jsClick(abUs.aboutUs);
 		
