@@ -3,13 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.McMillen.testcases.AboutUsPageTest">
+      <class name="com.Spirit.testbase.JDBCconnection">
         <methods>
-          <include name="tearDown"/>
-          <include name="annualR"/>
-          <include name="setUp"/>
+          <include name="getConnection"/>
         </methods>
-      </class> <!-- com.McMillen.testcases.AboutUsPageTest -->
+      </class> <!-- com.Spirit.testbase.JDBCconnection -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

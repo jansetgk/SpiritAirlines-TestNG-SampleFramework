@@ -2,24 +2,16 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="24683" started-at="2020-01-25T22:30:19 CST" finished-at="2020-01-25T22:30:43 CST">
+  <suite name="Default suite" duration-ms="594" started-at="2020-06-01T21:45:57 CDT" finished-at="2020-06-01T21:45:57 CDT">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="24683" started-at="2020-01-25T22:30:19 CST" finished-at="2020-01-25T22:30:43 CST">
-      <class name="com.McMillen.testcases.HomePageIcons">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.McMillen.testcases.HomePageIcons@5e853265]" name="setUp" is-config="true" duration-ms="11152" started-at="2020-01-25T22:30:19 CST" finished-at="2020-01-25T22:30:30 CST">
+    <test name="Default test" duration-ms="594" started-at="2020-06-01T21:45:57 CDT" finished-at="2020-06-01T21:45:57 CDT">
+      <class name="com.Spirit.testbase.JDBCconnectionPractice">
+        <test-method status="PASS" signature="getConnection()[pri:0, instance:com.Spirit.testbase.JDBCconnectionPractice@cd2dae5]" name="getConnection" duration-ms="542" started-at="2020-06-01T21:45:57 CDT" finished-at="2020-06-01T21:45:57 CDT">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="clickHome()[pri:0, instance:com.McMillen.testcases.HomePageIcons@5e853265]" name="clickHome" duration-ms="12854" started-at="2020-01-25T22:30:30 CST" finished-at="2020-01-25T22:30:43 CST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- clickHome -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.McMillen.testcases.HomePageIcons@5e853265]" name="tearDown" is-config="true" duration-ms="628" started-at="2020-01-25T22:30:43 CST" finished-at="2020-01-25T22:30:43 CST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.McMillen.testcases.HomePageIcons -->
+        </test-method> <!-- getConnection -->
+      </class> <!-- com.Spirit.testbase.JDBCconnectionPractice -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
